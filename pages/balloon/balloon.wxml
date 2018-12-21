@@ -1,0 +1,147 @@
+<import src="../navigationBar-tpl/navigationBar-tpl.wxml"></import>
+  <block wx:if="{{compatibility}}">
+    <template is="navigationBarTpl" data="{{...Comp}}"></template>
+  </block>
+
+<view class="balloon-box">
+   <image class="bck-img" src="https://oss.caoyu.online/basic/Discovery/sky_bck.jpg" mode="aspectFill" /> 
+  <image hidden='{{balloon_hidden}}' animation="{{animationData_balloon_up}}" mode='aspectFit' class="balloon-img" src="/images/icon/balloon.png" />
+  <view class='boom-box'>
+    <image hidden='{{boom1_hidden}}' animation="{{animationData_boom1}}" class="boom-img" src="/images/icon/boom.png" />
+    <image hidden='{{boom0_hidden}}' animation="{{animationData_boom0}}" class="boom-img1" src="/images/icon/boom.png" />
+    <image hidden='{{boom2_hidden}}' animation="{{animationData_boom2}}" class="boom-img2" src="/images/icon/boom-y.png" />
+    <image hidden='{{boom2_hidden}}' animation="{{animationData_boom2}}" class="boom-img3" src="/images/icon/boom-y.png" />
+    <image hidden='{{boom1_hidden}}' animation="{{animationData_boom1}}" class="boom-img4" src="/images/icon/boom.png" />
+    <image hidden='{{boom0_hidden}}' animation="{{animationData_boom0}}" class="boom-img5" src="/images/icon/boom.png" />
+    <image hidden='{{boom2_hidden}}' animation="{{animationData_boom2}}" class="boom-img6" src="/images/icon/boom-g.png" />
+    <image hidden='{{boom1_hidden}}' animation="{{animationData_boom1}}" class="boom-img7" src="/images/icon/boom.png" />
+    <image hidden='{{boom2_hidden}}' animation="{{animationData_boom2}}" class="boom-img8" src="/images/icon/boom-g.png" />
+    <image hidden='{{boom1_hidden}}' animation="{{animationData_boom1}}" class="boom-img9" src="/images/icon/boom-y.png" />
+    <image hidden='{{boom0_hidden}}' animation="{{animationData_boom0}}" class="boom-img0" src="/images/icon/boom.png" />
+    <image hidden='{{boom0_hidden}}' animation="{{animationData_boom0}}" class="boom-img01" src="/images/icon/boom-g.png" />
+    <image hidden='{{boom1_hidden}}' animation="{{animationData_boom1}}" class="boom-img02" src="/images/icon/boom-y.png" />
+  </view>
+</view>
+
+
+
+<view class='center' hidden="{{!display_throw&&!display_pick&&!display_mine}}">
+  <image class='page-bac' src='https://oss.caoyu.online/basic/Discovery/page.png'></image>
+
+  <textarea bindinput="inputChange" wx:if="{{display_throw}}" style="height: 80px" placeholder='说些什么吧！' placeholder-style="font-size: 15px; color: #6a6a6a;" maxlength='200' cursor-spacing="77" show-confirm-bar="" />
+
+  <text class='center-text' wx:if="{{display_throw}}" >点击选择一首歌曲：</text>
+  <text class='center-text' wx:elif="{{display_pick}}" style="margin-top:50px; border:1px solid #cdcdcd; height: 120px;">{{discovery_message}}</text>
+   <text class='center-text' wx:elif="{{display_mine}}" style="margin-top:10%">我所有的参与歌曲</text>
+
+  <scroll-view  scroll-y class='list-container' wx:if="{{display_throw}}" style="height:200px">
+    <block wx:for="{{ListItem}}" wx:for-item="item" >
+      <view catchtap='onTapToDetail' data-created-song-id='{{item.created_song_id}}' data-song-id='{{item.song_id}}'>
+          <view class="list-item-other {{currentSong==item.created_song_id ? 'on' : ''}}"> 
+            <view class='list-initiator-nick' >
+              <image src='{{item.cover_url}}'></image>
+            </view>
+            <view class='list-detail'>
+              <view class='list-box'>
+                <block wx:if="{{item.world_shared}}">
+                  <image src='/images/icon/public_icon.png'></image>  
+                </block>
+                <block wx:else>
+                  <image src='/images/icon/private_icon.png'></image>
+                </block>
+                <view class='title'> 
+                  <text >{{item.title}}</text> 
+                </view>
+                <view class='time'>
+                  <text>{{item.create_time_read}}</text>
+                </view>
+              </view>
+              <progress percent="{{item.progress|| progress}}" show-info active stroke-width='5'/>
+            </view>
+          </view> 
+      </view>
+    </block>
+  </scroll-view>
+  <scroll-view  scroll-y class='list-container' wx:elif="{{display_pick}}" style="height:100px; margin-top:30px;">
+   <block wx:for="{{ListItem}}" wx:for-item="item" >
+      <view catchtap='onTapToDetail' data-created-song-id='{{item.created_song_id}}' data-song-id='{{item.song_id}}'>
+          <view class="list-item-other {{currentSong==item.created_song_id ? 'on' : ''}}"> 
+            <view class='list-initiator-nick' >
+              <image src='{{item.cover_url}}'></image>
+            </view>
+            <view class='list-detail'>
+              <view class='list-box'>
+                <block wx:if="{{item.world_shared}}">
+                  <image src='/images/icon/public_icon.png'></image>  
+                </block>
+                <block wx:else>
+                  <image src='/images/icon/private_icon.png'></image>
+                </block>
+                <view class='title'> 
+                  <text >{{item.title}}</text> 
+                </view>
+                <view class='time'>
+                  <text>{{item.create_time_read}}</text>
+                </view>
+              </view>
+              <progress percent="{{item.progress|| progress}}" show-info active stroke-width='5'/>
+            </view>
+          </view> 
+      </view>
+    </block>
+  </scroll-view>
+  <scroll-view  scroll-y class='list-container' wx:elif="{{display_mine}}" style="height:70%; margin-top:1%;">
+   <block wx:for="{{ListItem}}" wx:for-item="item" >
+      <view catchtap='onTapToDetail' data-created-song-id='{{item.created_song_id}}' data-song-id='{{item.song_id}}'>
+          <view class="list-item-other {{currentSong==item.created_song_id ? 'on' : ''}}"> 
+            <view class='list-initiator-nick' >
+              <image src='{{item.cover_url}}'></image>
+            </view>
+            <view class='list-detail'>
+              <view class='list-box'>
+                <block wx:if="{{item.world_shared}}">
+                  <image src='/images/icon/public_icon.png'></image>  
+                </block>
+                <block wx:else>
+                  <image src='/images/icon/private_icon.png'></image>
+                </block>
+                <view class='title'> 
+                  <text >{{item.title}}</text> 
+                </view>
+                <view class='time'>
+                  <text>{{item.create_time_read}}</text>
+                </view>
+              </view>
+              <progress percent="{{item.progress|| progress}}" show-info active stroke-width='5'/>
+            </view>
+          </view> 
+      </view>
+    </block>
+  </scroll-view>
+
+  <view class="controlPanel-btn" wx:if="{{display_throw}}">
+    <button plain="true" style='border: 0px;' catchtap="submit">确定</button>
+    <button plain="true" style='border: 0px;' catchtap="cancel">取消</button>
+  </view>
+
+  <view class="controlPanel-btn" wx:elif="{{display_pick||display_mine}}" >
+    <button plain="true" style='border: 0px;' catchtap="cancel">隐藏</button>
+  </view>
+ 
+</view >
+
+
+<view class='control'>
+  <view class='item' catchtap="throw">
+    <image src='/images/icon/throw_balloon.png'></image>
+    <text>扔一个</text>
+  </view>
+  <view class='item' catchtap="pick">
+    <image src='/images/icon/pick_balloon.png'></image>
+    <text>捡一个</text>
+  </view>
+  <view class='item' catchtap="scanMySongs">
+    <image src='/images/icon/mine.png'></image>
+    <text>我的</text>
+  </view>
+</view> 

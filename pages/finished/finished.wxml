@@ -1,0 +1,76 @@
+<import src="../navigationBar-tpl/navigationBar-tpl.wxml"></import>
+
+<block wx:if="{{compatibility}}">
+   <template is="navigationBarTpl" data="{{...Comp}}"></template> 
+</block>
+
+<view class='control'>
+
+  <view wx:if="{{!isPlaying}}" class='play' catchtap='play'>
+    <image class='icon' src='/images/icon/play.png'></image>
+  </view>
+
+  <view wx:else class='play' catchtap='pause'>
+    <image class='icon' src='/images/icon/pause.png'></image>
+  </view>
+
+  <view class="progress-container-box">
+    <!-- <text class="time time-l">{{currentTime_format}}</text> -->
+    <view class="progress-container">
+     <slider bindchange="onProgressChange" block-size='16' step="1" max='100' min='0' backgroundColor='#65605f' activeColor='#f04f43' block-color='#f04f43' value="{{progress}}" />
+    </view>
+    <text class="time time-r">{{progress_format}}</text>
+  </view>
+
+</view>
+
+<view class='evaluate'>
+  <text class='title-d'>该段得分：</text>
+  <text class='score'>{{score}}</text>
+  <view class='text-progress'>
+        <text class='title-remain'>你还有</text>
+        <text class='remained-num'>{{clipsToBeSong}}</text>
+        <text class='title-remain'>段未完成</text>
+  </view>
+</view>
+
+<view class='adjust'>
+
+  <view class='row' style='margin-top:10px;'>
+    <text style='width:170rpx;margin-left:30rpx;color:#999999'>时间调整</text>
+    <view class="progress-container-box" style='width:520rpx;margin-right:30rpx;'>
+      <!-- <text class="time time-l" style='color:#cdcdcd'>-10</text> -->
+      <view class="progress-container">
+        <slider bindchange="onDelayJustified" block-size='16' step="20" max='500' min='-500' backgroundColor='#494949' value='{{delay_manual}}' activeColor='#494949' block-color='#f04f43' show-value="true" />
+      </view>
+      <!-- <text class="time time-r"  style='color:#cdcdcd'>10</text> -->
+    </view>
+  </view>
+
+  <view class='row'>
+    <text style='width:170rpx;margin-left:30rpx;color:#999999'>人声音量</text>
+    <view class="progress-container-box" style='width:520rpx;margin-right:30rpx;'>
+      <view class="progress-container">
+      <slider bindchange="onVocalVolumeChange" block-size='16' step="1" max='100' min='0' backgroundColor='#494949' value='{{volume_vocal*100}}' activeColor='#f04f43' block-color='#f04f43' show-value="true" />
+      </view>
+    </view>
+  </view>
+
+  <view class='row'>
+    <text style='width:170rpx;margin-left:30rpx;color:#999999'>伴奏音量</text>
+    <view class="progress-container-box" style='width:520rpx;margin-right:30rpx;'>
+      <view class="progress-container">
+      <slider bindchange="onBckVolumeChange" block-size='16' step="1" max='100' min='0' backgroundColor='#494949' value='{{volume_bck*100}}' activeColor='#f04f43' block-color='#f04f43' show-value="true" />
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+<view class='bottom'>
+  <view class='button-other' catchtap='onTapToEnsemble'>重唱</view>
+  <button wx:if="{{hasModified}}" class='updata'  catchtap="applicate" >应用</button>
+  <button wx:else class='updata'  catchtap='submit'>保存</button>
+  <view class='button-other' catchtap='onTapToReset'>重置</view>
+</view>

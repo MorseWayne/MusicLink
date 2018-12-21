@@ -1,0 +1,30 @@
+
+.nav-container{
+  width: 750rpx;
+  height: 45px;  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  z-index: 10;
+}
+
+
+.nav-container .image-back{
+  width: 15px;
+  height: 15px;
+  padding: 15px 10px 15px 10px;
+}
+
+.text-back-false{
+  margin-left: 20px;
+  font-size: 17px;
+  /* margin-top: 11px; */
+  /* display: flex; */
+}
+
+.text-back-true{
+  font-size: 17px;
+   /* margin-top: 11px;  */
+  /* display: flex; */
+}

@@ -1,0 +1,161 @@
+@import "../../navigationBar-tpl/navigationBar-tpl.wxss";
+.list-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px 0 0px 10px;
+  border-bottom: 1px solid #cdcdcd;
+  padding: 10px 0 10px 10px;
+}
+
+.list-title text{
+  font-size: 20px;
+  font-family: Microsoft YaHei;
+  color: #696969;
+}
+
+.list-title image{
+  height: 16px;
+  width: 16px;
+  margin-left: 10px;
+}
+
+.list-container{
+  display: flex;
+  flex-direction: column;
+  padding: 0px 0px 0px 10px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touth;
+}
+
+.list-item-other{
+  display: flex;
+  flex-direction: row;  
+}
+
+.list-initiator-nick{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+}
+
+.list-initiator-nick image{
+  margin: 6px;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 5px;
+}
+
+.list-initiator-nick text{
+  font-size: 26rpx;
+  color: #666;
+  margin: 5px 0 3px 0px;
+  width:50px;
+  text-align:center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list-detail{
+  padding: 10px 5px 10px 10px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.list-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title{
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1px 1px 1px 6px;
+  border-bottom: 1px solid rgba(255,255,255, 0.5);
+  width: 320rpx;
+}
+
+.title-finished{
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1px 1px 1px 6px;
+  border-bottom: 1px solid rgba(255,255,255, 0.5);
+  width: 300rpx;
+}
+
+.time{
+  width: 160rpx;
+  margin-top: 5rpx;
+  color: #a0a0a0;
+  font-size: 24rpx;
+  text-align: right;
+}
+
+
+.list-detail progress{
+  margin-top: 20rpx;
+  margin-right: 8rpx;
+  color: #ccc;
+}
+
+
+.list-box image{
+  height: 35rpx;
+  width: 35rpx;
+}
+
+
+/* 完成戳 */
+.list-item-finished{
+  display: flex;
+  flex-direction: row; 
+  background-image: url(https://oss.caoyu.online/basic/finished.png);  
+  background-size: 160rpx 160rpx;
+  background-repeat:no-repeat;
+  background-position:right; 
+}
+
+.list-box-second{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 20rpx;
+}
+
+
+
+.icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.detail-box-text{
+  padding-left: 10rpx;
+  width: 100rpx;
+  font-size: 12px;
+}
+
+.publish{
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 50px;
+  font-size: 13px;
+  background: #f05b41;
+  color: white;
+}
+
+.button-hover{
+  background: #cc0000;
+  color: #dbcece;
+}

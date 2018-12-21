@@ -1,0 +1,269 @@
+@import "../navigationBar-tpl/navigationBar-tpl.wxss";
+
+.shader{
+  top:0;
+  bottom: 0;
+  /* background: #222;  010102 */
+  /* opacity: 0.3;  */
+  z-index: -1;
+  position: absolute;
+}
+
+.background{
+  position: fixed; 
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 750rpx;
+  z-index: -2;
+  opacity: 0.8;   
+  /* -webkit-filter: blur(10rpx);     */
+  /* filter: blur(40rpx);  */
+}
+
+
+
+
+.select-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.music-detail-container{
+  position: fixed;
+  z-index: 4; 
+  width: 750rpx;
+}
+
+.music-detail {
+  padding: 20rpx 5rpx 20rpx 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background: #010102; */
+}
+
+.music-detail image{
+  height: 150rpx;
+  width: 150rpx;
+  border-radius: 10px;
+}
+
+.music-detail-text{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 20rpx;
+}
+
+.music-detail-text text{
+  font-size: 15px;
+  color: #fff;   /*歌曲介绍 文本 颜色*/
+  width: 500rpx;
+  font-family: Microsoft YaHei;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px;
+}
+
+.singer-share{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.singer-share button{
+  background-color: #fff;
+  color:#666;
+  height: 70rpx;
+  width: 250rpx;
+  font-size: 30rpx;
+  margin-left:50rpx;
+  line-height: 2.5;
+  border-radius: 50px;
+}
+
+.singer-share text{
+  margin-bottom: 0;
+  width: 200rpx;
+}
+
+/***********歌词选择************/
+.lyrics-container{
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  bottom: 100rpx;
+  padding-bottom: 60px; 
+  /* background-color: #010102; 歌词容器 背景 颜色 */
+}
+
+.lyrics-item image{
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50%;
+  margin: 3px 25rpx 3px 25rpx;
+}
+
+.lyrics-item text{
+  font-size: 17px;
+  color: #f6f1f1;     /*aeabab未选择歌词 文本 颜色*/  
+  font-family: Microsoft YaHei;
+  width: 550rpx;
+  text-align: center;
+}
+
+.selected-self{
+  background-color: #4e8aa5;  /*用户已选择歌词 背景 颜色*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 5px 0px 5px 0px; 
+}
+
+.selected-self text{
+  font-size: 17px;
+  color: #ffffff;     /*用户已选择歌词 文本 颜色 #db736c*/
+  font-family: Microsoft YaHei;
+  width: 550rpx;
+  margin-left: 100rpx;
+  text-align: center;
+}
+
+.selected-self image{
+  height: 50rpx;
+  width: 50rpx;
+  border-radius: 50%;
+  margin: 3px 25rpx 3px 25rpx;
+}
+
+.selected{
+  background-color: #3c6476;  /*已选择歌词 背景 颜色*/
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding: 5px 0px 5px 0px; 
+}
+
+.selected text{
+  color: #d3d3d3;    /*已选择歌词 文本 颜色*/
+  margin-right: 100rpx;
+}
+
+.unselected{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5px 0px 5px 0px; 
+}
+
+.unselected text{
+  margin-right: 100rpx;
+}
+
+/*********提交按钮************/
+.select-box{
+  position: fixed;
+  bottom: 0;
+  left:0;
+  right: 0;
+  min-height: 100rpx;
+  z-index: 4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color:#010102;  按钮容器背景色 */
+  border-top: 1px solid #282828;
+
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.select-box image{
+  height: 80rpx;
+  width: 80rpx;
+}
+
+.lock{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 350rpx;
+  height:70rpx;
+}
+
+.lock image{
+  height: 50rpx;
+  width: 50rpx;
+  margin-left: 100rpx;
+}
+
+.lock text{
+  margin-left: 50rpx;
+}
+
+.handon{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 350rpx;
+  height:70rpx;
+}
+
+.handon image{
+  height: 50rpx;
+  width: 50rpx;
+  margin-left: 50rpx;
+}
+
+.handon text{
+  margin-left: 50rpx;
+}
+
+/*控制导航*/
+.tutorial{
+  width: 100%;
+  height: 100%;
+  z-index: 44;
+  position:fixed;
+}
+
+.mask{
+
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  z-index: 45;
+  position: absolute;
+}
+
+.swiper-box{
+  margin-top: 20%;
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  z-index: 50;
+  position: absolute;
+}
+.swiper{
+  height: 100%;
+  width:100%;
+}
+
+.slide-image{
+  width: 95%;
+  height: 95%;
+  margin-left: 2.5%;
+  border-radius: 3%;
+}

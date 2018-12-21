@@ -1,0 +1,78 @@
+<view class='shader'>
+  <image class='background' src='/images/cover/bg_select.jpg'></image>
+</view>
+
+<import src="../navigationBar-tpl/navigationBar-tpl.wxml"></import>
+  <block wx:if="{{compatibility}}">
+    <template is="navigationBarTpl" data="{{...Comp}}"></template>
+  </block>
+
+<view class='select-container'>
+
+  <view class='music-detail-container'>
+    <view class='music-detail'>
+        <image src='{{songs.music.coverImg}}'></image>
+        <view class='music-detail-text'>
+          <text>{{songs.music.title}}</text>
+          <view class='singer-share'>
+            <text>{{songs.music.singer}}</text>
+            <button open-type="share">邀请好友合唱</button>
+          </view>
+        </view>
+    </view>
+  </view>
+
+  <view class='lyrics-container' style="top: {{Comp.statusBarHeight+45+95}}px;" >
+    <block wx:for="{{songs.lyrics}}" wx:for-item="item" wx:for-index="index" wx:key="">
+      <view class='lyrics-item' catchtap='selectLyrics' data-lyric-id='{{index}}'>
+
+        <block wx:if="{{item.selected_user_openId == openId}}">
+          <view class='selected-self'>
+            <text>{{item.lyric}}</text>
+            <image src='{{item.selected_user_avatar}}'></image>
+          </view>
+        </block>  
+
+        <block wx:elif="{{item.isSelected}}">
+          <view class='selected'>
+            <image src='{{item.selected_user_avatar}}'></image>
+            <text>{{item.lyric}}</text>
+          </view>
+        </block>
+
+        <block wx:else>
+          <view class='unselected'>
+            <image src='{{item.selected_user_avatar}}'></image>
+            <text>{{item.lyric}}</text>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="tutorial" hidden="{{tutorailHidden_select}}">
+  <view class='mask'></view>
+  <view class="swiper-box">
+    <swiper class="swiper" indicator-active-color="red" indicator-color="gray" indicator-dots="{{true}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{1000}}" bindchange='change' bindanimationfinish="animationEnd">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="aspectFit" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+
+<view class='select-box' data-entrance="lock">
+  <view class='lock' catchtap='lock'>
+    <image src='/images/icon/lock-1.png'></image>
+    <text>锁 定</text>
+  </view>
+  <image src='/images/icon/longstring_icon.png'></image>
+  <view class='handon' catchtap='handon' data-entrance="handon">
+    <image src='/images/icon/handon-1.png'></image>
+    <text>提 交</text>
+  </view>
+</view>

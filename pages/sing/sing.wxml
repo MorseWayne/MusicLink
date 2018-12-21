@@ -1,0 +1,95 @@
+<import src="sing-item-tpl/tpl-wxml/count-dot-tpl.wxml"></import>
+<import src="../navigationBar-tpl/navigationBar-tpl.wxml"></import>
+<import src="../dialog-tpl/dialog.wxml"></import>
+<block wx:if="{{compatibility}}">
+   <template is="navigationBarTpl" data="{{...Comp}}"></template> 
+</block>
+<view class="progress-bar" hidden="{{!isDownloading&&!isUploading}}">
+  <!-- <view class="progress-bar" hidden="{{true}}"> -->
+  <canvas class="circleBar" canvas-id="canvasArc"></canvas>
+  <!-- <view class='cc'>加载中</view> -->
+  <view class="title">{{propt_motto}}</view>
+  <!-- <view class="title">这是一个测试</view> -->
+</view>
+<view class="dialog-score" hidden="{{!showDialog_Score}}">
+  <!-- <view class="dialog" hidden="{{false}}"> -->
+  <template is="dialogTpl" data="{{score:score, progress: currentProgress,stars:starsArray,reaminedClipCnt:totalChoosedClipsCount- completedClipsNum}}"></template>
+</view>
+
+<view class="tutorial" hidden="{{tutorailHidden_sing}}">
+  <view class='mask'></view>
+  <view class="swiper-box">
+    <swiper class="swiper" indicator-active-color="red" indicator-color="gray" indicator-dots="{{true}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{1000}}" bindchange='change' bindanimationfinish="animationEnd">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="aspectFit" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+<view class="sing-container">
+  <view class="lyric-box">
+    <view class="countDown" hidden="{{isReadying}}">
+      <template is="countDownTpl" data="{{remainedTime}}"></template>
+    </view>
+    
+    <view class="upload-btn" hidden="{{hasUploaded}}">
+      <image animation="{{animationDatas['upload'].animationData}}" src="/images/icon/modify_icon.png" catchtap="checkFilesToUpload" class="upload-click" />
+      <image animation="{{animation_wave}}" src="/images/icon/circle_icon.png" class="upload-wave" />
+    </view>
+
+    <scroll-view scroll-y="true" scroll-with-animation="true" style="height: {{systemInfo.windowHeight-75-45}}px;margin-top:{{Comp.statusBarHeight+45}}px" scroll-into-view="{{toCurrentView}}">
+      <block wx:for="{{clipsIndex}}" wx:for-item="clipsIndex" wx:for-index="idx" wx:key="">
+        <view id="{{toView[idx]}}">
+          <block wx:for="{{songs.lyrics}}" wx:for-item="item" wx:for-index="index">
+            <!-- 让每一段歌词依次输出 -->
+            <block wx:if="{{(idx+1)==item.clipCount}}">
+              <!-- 在每次渲染时，将当前段特别显示（更改背景和字体颜色） -->
+              <block wx:if="{{(idx+1)==currentClipNum}}">
+                <view class="lyric-toview">
+                  <block wx:if="{{currentLineNum == index}}">
+                    <text class="current">{{item.lyric}}</text>
+                  </block>
+                  <block wx:else>
+                    <text class="text">{{item.lyric}}</text>
+                  </block>
+                </view>
+              </block>
+              <block wx:else>
+                <view class="lyric">
+                  <text>{{item.lyric}}</text>
+                  <text></text>
+                </view>
+              </block>
+            </block>
+          </block>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="control-box">
+    <image wx:if="{{!hasOriginSinger}}" animation="{{animationDatas['origin'].animationData}}" class="image-other" catchtap="playWithOriginalSinger" src="/images/icon/originalsinger_icon.png">
+      原唱
+    </image>
+    <image wx:else animation="{{animationDatas['origin'].animationData}}" class="image-other" catchtap="playWithOriginalSinger" src="/images/icon/has_Org_icon.png">
+      原唱
+    </image>
+    <image animation="{{animationDatas['last'].animationData}}" class="image-other" catchtap="skipToLastClips" src="/images/icon/lastClips_icon.png">
+      上一段
+    </image>
+    <image animation="{{animationDatas['play'].animationData}}" wx:if="{{!hasCompleted}}" class="image-main" catchtap="readyToRecord" src="/images/icon/start_icon.png">
+      开始
+    </image>
+    <image animation="{{animationDatas['TL'].animationData}}" wx:else class="image-main" catchtap="tryListening" src="/images/icon/try_listening_icon.png">
+      试听
+    </image>
+    <image animation="{{animationDatas['next'].animationData}}" class="image-other" catchtap="skipToNextClips" src="/images/icon/nextClips_icon.png">
+      下一段
+    </image>
+    <image animation="{{animationDatas['ensemble'].animationData}}" class="image-other" catchtap="ensemble" src="/images/icon/freshen_icon.png">
+      重唱
+    </image>
+  </view>
+</view>

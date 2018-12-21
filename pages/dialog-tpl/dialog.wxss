@@ -1,0 +1,173 @@
+/* pages/dialog.wxss */
+
+page {
+  height: 100%;
+}
+
+.score-box {
+  
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  opacity: 0.9;
+  background-color: #474747;
+}
+
+.bck-bottom {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  opacity: 1;
+  z-index: 10;
+  
+  
+}
+.display-area {
+  margin-top: 40%;
+  margin-left: 15%;
+  width:  70%;
+  height: 50%;
+  border-radius: 5%;
+  background-color: #262626;
+}
+
+
+.bck-bottom image {
+  margin-top: 40%;
+  margin-left: 15%;
+  width:  70%;
+  height: 50%;
+  border-radius: 5%;
+}
+
+.messageBox {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 50%;
+  position: absolute;
+  z-index: 15;
+  margin-top: 40%;
+  margin-left: 15%;
+  border-radius: 5%;
+}
+
+.title-d {
+  width: 90%;
+  height: 10%;
+  margin-top: 10%;
+  margin-left: 5%;
+  font-family: sans-serif;
+  /* font-style: italic; */
+  font-size: 45rpx;
+  letter-spacing: 3rpx;
+  color: #fff;
+}
+
+.score {
+  width: 100%;
+  height: 20%;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 80rpx;
+  text-align: center;
+  color: #f00;
+}
+
+.title-cg {
+  width: 90%;
+  height: 15%;
+  margin-left: 5%;
+  font-family: sans-serif;
+  font-style: italic;
+  font-size: 45rpx;
+  letter-spacing: 3rpx;
+  color: #fff;
+}
+
+.title-progress {
+  margin-top: 10%;
+  width: 90%;
+  height: 15%;
+  margin-left: 5%;
+  font-family: sans-serif;
+  /* font-style: italic; */
+  font-size: 45rpx;
+  letter-spacing: 3rpx;
+  color: #fff;
+}
+
+/*提示进度*/
+.text-progress{
+  display: flex;
+  flex-direction: row;
+  margin-top: 40rpx;
+  margin-left: 13%;
+}
+
+.title-remain{
+  height: 15%;
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 40rpx;
+  color: #fff;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+  margin-top: 5rpx;
+  text-align: center;
+}
+.remained-num{
+ font-weight: bold;
+ font-size: 50rpx;
+ color:#f00;
+}
+
+
+
+.stars-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  height: 70rpx;
+  margin-top: 6rpx;
+  margin-left:15%;
+}
+
+.stars image {
+  padding-left: 3rpx;
+  height: 70rpx;
+  width: 70rpx;
+}
+
+.star-score {
+  color: #4a6141;
+  font-size: 23rpx;
+  text-align: center;
+  width: 100%;
+  margin-left: 10%;
+}
+
+.progress-bar-d {
+  height: 20rpx;
+  width: 90%;
+  margin-left: 30rpx;
+}
+
+.cancel-btn {
+bottom:20%;
+  margin-left: 45%;
+  height: 80rpx;
+  width: 80rpx;
+  z-index: 16;
+  position: absolute;
+}
+
+.cancel-img {
+  height: 80rpx;
+  width: 80rpx;
+}

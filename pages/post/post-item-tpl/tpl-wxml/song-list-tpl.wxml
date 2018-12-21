@@ -1,0 +1,28 @@
+<import src="single-song-tpl.wxml"></import>
+<template name="songListTpl">
+    <view class="song-list-container">
+        <view class="inner-container">
+            <view class="song-head" catchtap="onMoreTap"  data-category="{{categoryTitle}}">
+                <text class="slogan">{{categoryTitle}}</text>
+                <view class="more">
+                    <text class="more-text">更多</text>
+                    <image class="more-img" src="/images/icon/more_icon.png"></image>
+                </view>
+            </view>
+            <view class="songs-container">
+                <block wx:for="{{songs}}" wx:for-item="song" wx:key="song.song_id" wx:for-index="idx">
+                    <block wx:if="{{idx<3}}">
+                        <template is="singleSongTpl" data="{{song}}"></template>
+                    </block>
+                </block>
+            </view>
+            <view class="songs-container">
+                <block wx:for="{{songs}}" wx:for-item="song" wx:key="song.song_id" wx:for-index="idx">
+                    <block wx:if="{{idx>=3}}">
+                        <template is="singleSongTpl" data="{{song}}"></template>
+                    </block>
+                </block>
+            </view>
+        </view>
+    </view>
+</template>

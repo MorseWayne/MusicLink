@@ -1,0 +1,162 @@
+<!--顶部导航栏-自定义-->
+<block wx:if="{{compatibility}}">
+  <view class="swiper-tab" style='padding-top:{{statusBarHeight}}px'>
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" style='margin-left:25%'  data-current="0" bindtap="swichNav">欣赏</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" style='margin-right:25%'  data-current="1" bindtap="swichNav">合唱</view>
+  </view>
+</block>
+
+<!--内容主体-->
+  <swiper class="swiper" current="{{currentTab}}" style='margin-top:{{statusBarHeight+40}}px;  height: {{windowHeight-statusBarHeight-40}}px' duration="200" bindchange="swiperChange">
+
+<!--动态-->
+    <swiper-item>
+      <scroll-view class='world-container' scroll-y bindscrolltoupper="upper" style="height: {{windowHeight-statusBarHeight-40}}px;" >
+        <block wx:for="{{FinishedList}}" wx:for-item="item" wx:key="item.worldId">
+          <view catchtap='onTapToPlay' data-ids='{{item.ids}}'>
+              <view class='world-item'>
+                <view class='world-initiator'>
+                  <image src='{{item.avatar}}'></image>
+                </view>
+
+                <view class='world-detail'>
+                  <view class='world-box'>
+                    <view class='nick'> 
+                      <text >{{item.initiatorNick}}</text> 
+                    </view>
+                    <view class='time'>
+                      <text>{{item.create_time_read}}</text>
+                    </view>
+                  </view>
+                  <text class='comment' >{{item.comment}}</text>
+
+                  <view class='music-box'>
+                    <image src='{{item.music.coverImg}}'></image>
+                    <view class='music-detail'>
+                      <text>{{item.music.title}}</text>
+                      <text>原唱：{{item.music.singer}}</text>
+                    </view>
+                  </view>
+
+                  <view class='detail-box'>
+                    <image class='icon' src='/images/icon/listen.png'></image>
+                    <text class='detail-box-text'>{{item.listened_time}}</text>
+                    <image class='icon' src='/images/icon/grade.png'></image>
+                    <text class='detail-box-text'>{{item.song_score}}分</text>
+                  </view>
+
+
+                  <!--参与者头像-->
+                   <scroll-view scroll-x class='avatar-box'>
+                    <block wx:for="{{item.Paticipants}}" wx:for-item="itm">
+                      <image src='{{itm.avatar_url}}'></image>
+                    </block>
+                  </scroll-view> 
+
+
+
+                  <!--参与者昵称-->
+                  <view class='nickName-box'>
+                    <text class='nickName-before'>{{item.nickNameString}}</text>
+                    <text class='nickName-after'>{{item.nickNameString_after}}</text>
+                  </view>
+
+                </view>
+              </view>
+
+
+          </view>
+        </block>
+        <view style='padding-top:{{statusBarHeight+45}}px'></view>      
+      </scroll-view>
+    </swiper-item>
+
+<!--世界-->
+    <swiper-item>
+      <scroll-view class='world-container'  bindscrolltoupper="upper" scroll-y style="height: {{windowHeight-statusBarHeight-40}}px;" >
+        <block wx:for="{{worldList}}" wx:for-item="item" wx:key="item.worldId">
+          <view catchtap='onTapToDetail' data-ids='{{item.ids}}' >
+              <view class='world-item'>
+                <view class='world-initiator' >
+                  <image src='{{item.avatar}}'></image>
+                </view>
+                <view class='world-detail'>
+                  <view class='world-box'>
+                    <view class='nick'> 
+                      <text >{{item.initiatorNick}}</text> 
+                    </view>
+                    <view class='time'>
+                      <text>{{item.create_time_read}}</text>
+                    </view>
+                  </view>
+                  <text class='comment' >{{item.comment}}</text>
+                  <view class='music-box'>
+                    <image src='{{item.music.coverImg}}'></image>
+                    <view class='music-detail'>
+                      <text>{{item.music.title}}</text>
+                      <text>原唱：{{item.music.singer}}</text>
+                    </view>
+                  </view>
+                  <progress percent="{{item.progress}}" show-info active stroke-width='5'/>
+                </view>
+              </view>
+          </view>
+        </block>
+        <view style='padding-top:{{statusBarHeight+45}}px'></view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- 第一版 -->
+ <!-- <block wx:for="{{worldList}}" wx:for-item="item">
+  <view catchtap='onTapToDetail' data-post-id='{{item.worldId}}'>
+    <view class='world-container'>
+      <view class='world-box-row'>
+        <view class='world-initiator-nick' >
+          <image src='{{item.avatar}}'></image>
+          <text>{{item.initiatorNick}}</text>
+        </view>
+
+        <view class='world-box-column' >
+          <view class='world-title-date'>
+            <text>{{item.music.title}}</text>
+            <text>{{item.date}}</text>
+          </view>
+          <view>
+            <progress percent="{{item.progress}}" show-info active/>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</block>  -->

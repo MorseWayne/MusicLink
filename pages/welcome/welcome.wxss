@@ -1,0 +1,114 @@
+page{
+  /* background-color: #A4B6CF; */
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+
+.sign{
+  /* position: fixed; */
+  margin-top: 100rpx;  
+  height: 250rpx;
+  width: 250rpx;
+  z-index: 10;
+  border-radius: 15%;
+  /* border: 2px solid #fff;  */
+}
+
+
+.background{
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  /* opacity: 0.7;        */
+  /* -webkit-filter: blur(30rpx);
+  filter: blur(30rpx);    */
+}
+.background image{
+  width: 100%;
+  height: 100%;
+}
+
+ .detail{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+} 
+
+.theme{
+  margin-top:20px; 
+  font-size: 22px;
+  color: #fff;
+}
+
+.introduction{
+  margin-top:20px; 
+  font-size: 15px;
+}
+
+.userinfo-avatar{
+  position: fixed;
+  top: 10%;
+  height: 300rpx;
+  width: 300rpx;
+  border-radius: 50%;
+}
+
+
+
+.userInfo-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.start-btn{
+  position: fixed;
+  bottom: 20%;
+  border: 2px solid #fff; 
+  width: 500rpx;
+  border-radius: 30px;  
+  background:none;  
+  color:#fff; 
+}
+/*button去边框  */
+  button::after{ border: none; }   
+
+.enter-post-btn{
+  position: fixed;
+  bottom: 20%;
+}
+
+.button-color{
+   /* font-weight: bold;
+  color: #ddd;  */
+}
+
+.start-btn-cmpa{
+  position: fixed;
+  bottom: 8%;
+  border: 1px solid #fff; 
+  width: 300rpx;
+  border-radius: 50px; 
+  font-size: 35rpx;
+  height: 40px;
+  line-height: 40px; 
+  background:none;  
+  color:#fff; 
+}
+
+.button-hover{
+  border: 1px solid #dbcece;
+  color:#dbcece; 
+}

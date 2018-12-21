@@ -1,0 +1,13 @@
+
+.countDown-container{
+    display: flex;
+    flex-direction: row;
+    height: 60rpx;
+    width: 240rpx;
+    z-index: 1;
+}
+.dot-img{
+    height:60rpx;
+    width: 60rpx;
+    margin-right: 20rpx;
+}

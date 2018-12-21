@@ -1,0 +1,19 @@
+<view class="score-box">
+  <view class="bck-bottom">
+    <!-- <image src='/images/cover/bck.jpg' mode='scaleToFill'></image> -->
+    <view class='display-area'></view>
+  </view>
+  <view class='messageBox'>
+    <text class='title-d'>恭喜</text>
+    <text class='prompt'>这首歌由你最终完成,现在你可以试听这首歌了,你可以发布这首歌的新动态!</text>
+
+    <view class='opt-btn'>
+      <view class='trylistening-btn' catchtap='goToListening'>试听</view>
+      <view class='post-btn' catchtap='goToPost'>发布</view>
+    </view>
+
+  </view>
+  <view class='cancel-btn' catchtap='cancel'>
+    <image class='cancel-img' src="/images/icon/cancel_icon.png"></image>
+  </view>
+</view>

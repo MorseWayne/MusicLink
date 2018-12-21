@@ -1,0 +1,67 @@
+<import src="../navigationBar-tpl/navigationBar-tpl.wxml"></import>
+<block wx:if="{{compatibility}}">
+  <!-- <template is="navigationBarTpl" data="{{...Comp}}"></template> -->
+  <view class='nav-container' style=' background:{{Comp.background}}; padding-top:{{Comp.statusBarHeight}}px'>
+    <!-- <text class='text-back-false' style='color:{{Comp.color}}' >{{Comp.text}}</text> -->
+    <view class='search' catchtap='onSearchTap'>
+      <image class='search-image' src='/images/icon/search.png'></image>
+      <textarea placeholder='搜索' catchtap='onSearchTap' bindinput="inputChange" placeholder-style="font-size: 12px; color: #f5f5f5;" fixed="true" show-confirm-bar='' maxlength='10'></textarea>
+    </view>
+  </view>
+  <view style='padding-top:{{Comp.statusBarHeight+45}}px'></view>
+  <!-- 搜索结果  scroll-view中height为5个搜索结果的高度 -->
+  <scroll-view class='searchResult' hidden='{{!showSearchResult}}' scroll-y style='height:205px'>
+    <view wx:if="{{showNoResult}}" class='searchItem'>
+      <text>暂无搜索结果</text>
+    </view>
+    <block wx:for="{{searchResult}}" wx:for-index='idx'>
+      <view class='searchItem' catchtap='onSearchItemTap' data-id='{{idx}}'>
+        <text>{{item.title}} {{item.singer}}</text>
+      </view>
+    </block>
+  </scroll-view>
+  <view class='StopSearch' catchtap='onStopSearchTap' hidden='{{!showSearchResult}}'></view>
+</block>
+<import src="post-item-tpl/tpl-wxml/song-list-tpl.wxml"></import>
+<view class='container'>
+  <!-- 滚动海报 -->
+  <swiper catchtap='onSwipperTap' indicator-dots="{{true}}" autoplay="{{true}}" interval="{{4000}}" duration="{{1000}}" circular='true'>
+    <block wx:for="{{swipperPost.songs}}" wx:for-item="item" wx:for-index="idx">
+      <swiper-item>
+        <image class="swiper-image" src="https://oss.caoyu.online/basic/poster{{idx+1}}.jpg" mode='widthFix' data-idx='{{idx}}' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 分栏 -->
+  <view class='post-subfield'>
+    <block wx:for='{{subfieldList}}' wx:for-item="item" wx:for-index="index">
+      <view class='subfield-item' catchtap='onSubfieldTap' data-subfieldid="{{index}}">
+        <image src='{{item.image}}'></image>
+        <text>{{item.text}}</text>
+      </view>
+    </block>
+  </view>
+  <!-- 两个目录，一个热门，一个推荐 -->
+  <view class="songs-template">
+    <template is="songListTpl" data="{{...inThreaten_P}}"></template>
+  </view>
+  <view class="songs-template">
+    <template is="songListTpl" data="{{...ourRecommend_P}}"></template>
+  </view>
+  <view class="songs-template">
+    <template is="songListTpl" data="{{...foreign_P}}"></template>
+  </view>
+</view>
+
+<view class="tutorial" hidden="{{tutorailHidden_post}}">
+    <view class='mask'></view>
+    <view class="swiper-box">
+      <swiper class="swiper-t" indicator-active-color="red" indicator-color="gray" indicator-dots="{{true}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{1000}}" bindchange='change' bindanimationfinish="animationEnd">
+        <block wx:for="{{imgUrls}}">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" mode="aspectFill" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>

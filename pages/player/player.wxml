@@ -1,0 +1,85 @@
+
+<view>
+  <view class="player" >
+
+    <view class="normal-player">
+<!--虚化背景设置  -->
+      <view class="background">
+        <image src="{{currentSongInfo.coverImg}}" style="width: 100%"/>
+      </view>
+<!--顶部 歌名加歌手  -->
+      <view class="top">
+        <view class="title" style='margin-top: {{statusBarHeight}}px'>{{currentSongInfo.title}}</view>
+        <view class="subtitle">{{currentSongInfo.artist}}</view>
+      </view>
+<!--中部 旋转img和歌词切换  -->
+      <swiper class="middle" style="height: 700rpx;margin-top: {{statusBarHeight}}px" bindchange="changeDot">
+<!--旋转img  -->
+        <swiper-item class="middle-left" style="overflow: visible">
+          <view class="cd-container">
+            <view class="cd {{cdCls}}">
+              <image src="{{currentSongInfo.coverImg}}"  class="image"/>
+            </view>
+          </view>
+<!-- 当前歌词显示 -->
+          <view class="currentLyricContainer">{{currentLyric}}</view>
+        </swiper-item>
+<!-- 整体歌词  -->
+        <swiper-item class="middle-right">
+          <scroll-view class="lyric-container" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
+            <view wx:if="currentLyric">
+              <view ref="lyricLine"
+                    id="line{{index}}"
+                    class="text {{currentLyricLineNum == index ? 'current': '' }}"
+                    wx:for="{{lyrics}}">{{item.lyric}}
+              </view>
+            </view>
+            <view wx:else>
+              <view class="text current">暂无歌词</view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      </swiper>
+
+<!--swiper 下的切换点  -->
+      <view class="dots-container">
+        <view class="dots {{currentDot==index?'current':''}}" wx:for="{{dotsArray}}"></view>
+      </view>
+
+<!-- 底部 进度条和操作box -->
+      <view class="bottom">
+
+<!-- 进度条  -->
+        <view class="progress-container-box">
+          <text class="time time-l">{{progress_formatted}}</text>
+          <view class="progress-container">
+            <slider bindchange="onProgressChange" block-size='16' step="1" max='100' min='0' backgroundColor='#65605f' activeColor='#f04f43' block-color='#f04f43' value="{{progress}}" />
+          </view>
+          <text class="time time-r">{{duration_formatted}}</text>
+        </view>
+
+<!--操作框  -->
+        <view class="operators">
+            <view class='control-box'>
+              <!-- <button  plain='true'>
+                <image class='button-icon' src='/images/icon/return_icon.png' />
+              </button> -->
+               <image class='icon-return' catchtap='backToPost' src='/images/icon/return_icon.png' /> 
+              <image class='icon' catchtap='prev' src='/images/icon/playerLast_icon.png' />
+              <block wx:if="{{!isPlaying}}">
+                <image class='icon'catchtap='play'src='/images/icon/playerBegin_icon.png' />
+              </block>
+              <block wx:else>
+                  <image class='icon'catchtap='pause'src='/images/icon/playerPause_icon.png' />
+              </block>
+              <image class='icon'catchtap='next' src='/images/icon/playerNext_icon.png' />
+              <button open-type="share" plain='true'>
+                <image class='button-icon' src='/images/icon/share_icon.png' />
+              </button>
+          </view> 
+
+        </view>    
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,39 @@
+<import src="../../navigationBar-tpl/navigationBar-tpl.wxml"></import>
+  <block wx:if="{{compatibility}}">
+    <template is="navigationBarTpl" data="{{...Comp}}"></template>
+  </block>
+
+<!--已发起歌曲 界面  -->
+<block wx:if="{{pagesId==0}}">
+
+</block>
+
+<!--参与的歌曲 界面  -->
+<block wx:elif="{{pagesId==1}}">
+
+</block>
+
+<!--设置 界面  -->
+<block wx:elif="{{pagesId==4}}">
+  <view class="setting-container">
+    <image class="setting-img" src="/images/icon/authorized_icon.png" mode='aspectFill'></image>
+    <button class="authorized-btn" hover-class="button-hover" open-type="openSetting" bindopensetting="handler" size="default">授权</button>
+    <button class="clearStorage-btn" hover-class="button-hover" size="default" catchtap='onTapClearStorage'>清除缓存</button>
+    <!-- <button class="clearAuthorized-btn" hover-class="button-hover-clearAuthorized" size="default" catchtap='onTapClearAuthorized'>清除授权</button> -->
+  </view>
+</block>
+
+<!--关于 界面  -->
+<block wx:elif="{{pagesId==5}}">
+  <view class='about'>
+    <image src='https://oss.caoyu.online/basic/we.jpg' mode='scaleToFill' ></image>
+    <text>开发团队：EWA</text>
+    <text>项目成员：屈志豪 杨鹏宇 曹雨</text>
+    <text>学校院系：四川大学 软件学院</text>
+    <text>技术顾问：高浩天</text>
+    <text>指导老师：王鹏</text>
+    <text>简介：连音符（Music_link）是一款分段合唱小程序，你可以在这里选择自己喜欢的歌和朋友们一起完成。即使你们分隔多地，也可以无缝链接，表达共同的情感、唱出自己的精彩。更有“世界板块”，将更多爱歌人相互连接，互不认识也可以共同合作完成同一首歌。将几个人一起完成的作品分享给微信好友，也不失为一份有意义的礼物哦！</text>
+  </view>
+</block>
+
+

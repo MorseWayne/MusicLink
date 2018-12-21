@@ -1,0 +1,44 @@
+@import "single-song-tpl.wxss";
+
+.song-list-container {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.inner-container{
+    margin: 10rpx  10rpx 10rpx 10rpx;
+} 
+
+.song-head {
+  padding: 25rpx 10rpx 10rpx 10rpx;
+}
+
+.slogan {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #886633;
+}
+
+.more {
+  float: right;
+}
+
+.more-text {
+  vertical-align: middle;
+  margin-right:12rpx;
+  font-size: 25rpx;
+  color: #4A6141;
+}
+
+.more-img {
+  width: 9rpx;
+  height: 16rpx;
+  vertical-align: middle;
+}
+
+.songs-container{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+}

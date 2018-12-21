@@ -1,0 +1,49 @@
+
+<!-- <view class='container'> 
+  <view class="background">
+    <image src="https://oss.caoyu.online/basic/welcome_bg.jpg" />
+  </view>  
+  <view class='detail'>
+    <image class='sign' src="/images/cover/cover.png" /> 
+    <text class='theme' >连音符</text>
+    <text class='introduction'>分段合唱，让你我与世界相连！</text>
+  </view>
+  <block wx:if="{{true}}">
+    <button class="start-btn" open-type="getUserInfo" bindgetuserinfo="getAllAuthorized">
+      开启音乐之旅
+    </button>
+  </block>
+</view> -->
+
+
+<view wx:if="{{compatibility}}">
+<view class='container'> 
+  <view class="background">
+    <image src="https://oss.caoyu.online/basic/welcome_bg.jpg" />
+  </view>  
+
+  <block wx:if="{{true}}">
+    <button class="start-btn-cmpa" open-type="getUserInfo" bindgetuserinfo="getAllAuthorized">
+    <!-- <button class="start-btn-cmpa" open-type="getUserInfo" catchtap='OnTapToStart' > -->
+      开启音乐之旅
+    </button>
+  </block>
+</view>
+</view>
+<view wx:else>
+  <view class='container'> 
+    <view class="background">
+      <image src="/images/cover/bg.jpg" />
+    </view>  
+    <view class='detail'>
+      <image class='sign' src="/images/cover/cover.png" /> 
+      <text class='theme' >连音符</text>
+      <text class='introduction'>用音乐让你我相连</text>
+    </view>
+    <block wx:if="{{true}}">
+      <button class="start-btn" hover-class="button-hover" open-type="getUserInfo" bindgetuserinfo="getAllAuthorized">
+        开启音乐之旅
+      </button>
+    </block>
+  </view> 
+</view>

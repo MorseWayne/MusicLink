@@ -1,0 +1,98 @@
+<!--version 2-->
+<view class='shader'>
+  <image class='background' src='{{song.coverageUrl}}'></image>
+</view>
+  
+<view class='container'>
+<!--顶部 -->
+  <view class='top-background'>
+      <button class='cancel' catchtap='onBackTap' plain="true" style='margin-top:{{Comp.statusBarHeight+10}}px;  border: 0px;' >取消</button>
+     <image class='cover' style='margin-top:{{70-Comp.statusBarHeight}}px' src='{{song.coverageUrl}}'></image>
+     <text class="title">{{song.title}}</text>
+     <text class="other">{{song.singer}}·{{song.album}}</text>
+  </view>
+
+<!--下部-->
+  <view class="setCreatingType">
+    <view class="text-promt">
+        <text class="text-main">是否公开</text>
+        <text class="Hint">允许所有人参加你的合唱</text>
+    </view>
+    <switch class="switch-btn" color="#f05b41" bindchange="setCreatingType"></switch>
+  </view>
+
+  <view class="inputDescription">
+     <text class="text-main"></text>  
+    <view class='textarea'>
+      <textarea bindinput="inputChange" style="height: 6em" placeholder='说些什么吧！' placeholder-style="font-size: 15px; color: #8a8a8a;" maxlength='200' cursor-spacing="77" show-confirm-bar="" />
+    </view>
+  </view>
+
+  <button class='publish' catchtap='onTaptoCreate' hover-class="button-hover">发起合唱，邀请好友</button>
+
+</view>
+
+
+<!--version 1-->
+<!-- <import src="../post/post-item-tpl/tpl-wxml/stars-tpl.wxml"></import>
+<import src="../navigationBar-tpl/navigationBar-tpl.wxml"></import>
+  <block wx:if="{{compatibility}}">
+    <template is="navigationBarTpl" data="{{...Comp}}"></template>
+  </block>
+
+
+<view class="create-container"> -->
+    <!-- 歌曲所有信息视图层 -->
+    <!-- <view class="songInfo">
+        <view class='music-box'>
+            <image class='cover' src='{{song.coverageUrl}}'></image>
+            <view class='music-detail'>
+                <text class="title">{{song.title}}</text>
+                <text class="other">原唱：{{song.singer}}</text>
+                <text class="other">专辑：{{song.album}}</text>
+                <view class='degree-of-difficulty' >
+                    <text class="other">难度指数：</text>
+                    <template is="starsTpl" data="{{stars:song.stars,score:7}}"></template>
+                </view>
+            </view>
+      </view>
+    </view> -->
+
+    <!-- 创建歌曲相关设置视图层 -->
+    <!-- <view class="settings">
+        <view class="setCreatingType">
+            <view class="text-promt">
+                <text class="text-main">是否公开</text>
+                <text class="Hint">允许他人参加你的合唱</text>
+            </view>
+            <switch class="switch-btn" color="#97b9de" bindchange="setCreatingType"></switch>
+        </view>
+        <view class="setDateSchedule">
+            <view class="text-promt">
+                <text class="text-main">活动时间选择</text>
+                <text class="Hint">你的合唱活动的有效时间</text>
+            </view> -->
+
+            <!-- <view class="datePicker">
+                <view class="startDatePicker">
+                    <picker mode="date" value="{{startDate}}"></picker>
+                </view>
+                <view class="endDatePicker">
+                    <picker mode="date" value="{{endDate}}"></picker>
+                </view>
+            </view> -->
+        <!-- </view>
+        <view class="inputDescription">
+             <text class="text-main"></text> 
+            <view class='textarea'>
+               <textarea bindinput="inputChange" style="height: 5em" placeholder='说些什么吧！' placeholder-style="font-size: 15px; color: #8a8a8a;" cursor-spacing="77" show-confirm-bar=""   />
+            </view>
+        </view>
+    </view>
+
+    <view class="all-btns">
+        <button class="btn" catchtap="onTaptoCancel">取消</button>
+        <button class="btn" catchtap="onTaptoCreate">创建</button>
+   </view>
+
+</view> -->

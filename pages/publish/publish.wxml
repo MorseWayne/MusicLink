@@ -1,0 +1,21 @@
+<view class='shader'>
+  <image class='background' src='{{publishSong.cover_url}}'></image>
+</view>
+  
+<view class='container'>
+  <view class='top-background'>
+      <button class='cancel' catchtap='onBackTap' plain="true" style='margin-top:{{Comp.statusBarHeight+10}}px;  border: 0px;' >取消</button>
+     <image class='cover' style='margin-top:{{70-Comp.statusBarHeight}}px' src='{{publishSong.cover_url}}'></image> 
+  </view>
+
+  <view class="inputDescription">
+    <text class="text-main"></text> 
+    <view class='textarea'>
+      <textarea bindinput="inputChange" style="height: 6em" placeholder='我们合唱了一首歌，快来听听吧。' placeholder-style="font-size: 15px; color: #8a8a8a;" maxlength='200' cursor-spacing="77" show-confirm-bar="" />
+    </view>
+  </view>
+
+  <button class='publish' catchtap='onPublishTap' hover-class="button-hover">发布</button>
+
+</view>
+

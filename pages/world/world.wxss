@@ -1,0 +1,199 @@
+page{
+  padding-bottom: 40rpx;
+}
+
+/*******自定义导航栏***********/
+.swiper-tab {
+  display: flex;
+  flex-direction: row;
+  line-height: 45px;
+  top:0;
+  width: 750rpx;
+  border-bottom: 1rpx solid #f8f8f8; 
+  background: #ffffff;
+  position: fixed;
+  z-index: 10;
+}
+ 
+.tab-item {
+  width: 20%;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
+ 
+.swiper {
+  width: 750rpx;
+  background: #fff;
+  position: fixed;
+}
+ 
+.on {
+  color: #de4137; /***#e44929 #f2765d***/ 
+  font-size: 23px;
+  font-weight: 700;
+  /* border-bottom: 5rpx solid blue; */
+}
+
+
+/********世界****************/
+
+.world-container{
+  display: flex;
+  flex-direction: column;
+   overflow-y: auto;
+  -webkit-overflow-scrolling: touth; 
+  /* vertical-align: top;
+  position: relative; */
+}
+
+.world-item{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 10px solid #F5F5F5;  
+}
+
+.world-initiator{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.world-initiator image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 15px;
+  border-radius: 50%;
+}
+
+.world-detail{
+  padding: 10px 5px 10px 10px;
+  border-bottom: 1px solid rgba(255,255,255, 0.5);
+  width: 100%;
+}
+
+.world-box{
+  display: flex;
+  flex-direction: row;
+}
+
+.nick{
+  font-size: 16px;
+  font-family: Microsoft YaHei;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1px 1px 1px 1px;
+  border-bottom: 1px solid rgba(255,255,255, 0.5);
+  width: 400rpx;
+}
+
+.time{
+  /* margin-left:15px;  */
+  margin-right: 5%;
+  margin-top: 5rpx;
+  width: 95%;
+  color: #ccc;
+  font-size: 24rpx;
+  text-align: right;
+}
+
+.world-detail progress{
+  margin-top: 20rpx;
+  color: #ccc;
+}
+
+.comment{
+  font-size: 14px;
+  font-family: Microsoft YaHei;
+
+  color: #666;
+}
+
+.music-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #F5F5F5;
+  width: 95%;
+  margin-top: 10px;
+}
+
+.music-box image{
+  height: 150rpx;
+  width: 150rpx;
+}
+
+.music-detail{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.music-detail text{
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: #666;
+  font-family: Microsoft YaHei;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 300rpx;
+}
+
+
+
+.detail-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 20rpx;
+  width: 95%;
+  padding-bottom: 10rpx;
+  border-bottom: 1rpx solid #f8f8f8; 
+}
+
+.icon{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.detail-box-text{
+  padding-left: 20rpx;
+  width: 220rpx;
+  font-size: 13px;
+}
+
+
+
+
+.avatar-box{
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  margin-top: 10px;
+}
+
+
+.avatar-box image{
+  height: 60rpx;
+  width: 60rpx;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
+.nickName-box{
+  /* margin-top: 5px; */
+  width: 95%;
+}
+
+.nickName-before{
+  font-size: 14px;
+  color: #315e87; 
+}
+
+.nickName-after{
+  font-size: 14px;
+  color: #525e74; 
+}

@@ -1,0 +1,85 @@
+
+<view>
+  <view class="player" >
+
+    <view class="normal-player">
+<!--虚化背景设置  -->
+      <view class="background">
+        <image src="{{currentSong.cover_url}}" style="width: 100%"/>
+      </view>
+<!--顶部 歌名加歌手  -->
+      <view class="top">
+        <view class="title" style='margin-top: {{statusBarHeight}}px'>{{currentSong.title}}</view>
+        <view class="subtitle">{{currentSong.artist}}</view>
+      </view>
+<!--中部 旋转img和歌词切换  -->
+      <swiper class="middle" style="height: 700rpx;margin-top: {{statusBarHeight}}px" bindchange="changeDot">
+<!--旋转img  -->
+        <swiper-item class="middle-left" style="overflow: visible">
+          <view class="cd-container">
+            <view class="cd {{cdCls}}">
+              <image src="{{currentSong.cover_url}}"  class="image"/>
+            </view>
+          </view>
+<!-- 当前歌词显示 -->
+          <view class="currentLyricContainer">{{currentLyric}}</view>
+        </swiper-item>
+<!-- 整体歌词  -->
+        <swiper-item class="middle-right">
+          <scroll-view class="lyric-container" scroll-y scroll-into-view="line{{toLineNum}}" scroll-with-animation>
+            <view wx:if="currentLyric">
+              <view ref="lyricLine"
+                    id="line{{index}}"
+                    class="text {{currentLineNum == index ? 'current': '' }}"
+                    wx:for="{{Lyrics}}">{{item.lyric}}
+              </view>
+            </view>
+            <view wx:else>
+              <view class="text current">暂无歌词</view>
+            </view>
+          </scroll-view>
+        </swiper-item>
+      </swiper>
+
+<!--swiper 下的切换点  -->
+      <view class="dots-container">
+        <view class="dots {{currentDot==index?'current':''}}" wx:for="{{dotsArray}}"></view>
+      </view>
+
+<!-- 底部 进度条和操作box -->
+      <view class="bottom">
+
+<!-- 进度条  -->
+        <view class="progress-container-box">
+          <text class="time time-l">{{currentTime_format}}</text>
+          <view class="progress-container">
+            <progress percent="{{percent*100}}" activeColor="#fff" backgroundColor="#000" />
+          </view>
+          <text class="time time-r">{{duration_print}}</text>
+        </view>
+
+<!--操作框  -->
+        <view class="operators">
+            <view class='control-box'>
+              <!-- <button  plain='true'>
+                <image class='button-icon' src='/images/icon/return_icon.png' />
+              </button> -->
+               <image class='icon-return' catchtap='Return' src='/images/icon/return_icon.png' /> 
+              <image class='icon' catchtap='prev' src='/images/icon/playerLast_icon.png' />
+              <block wx:if="{{playIcon=='icon-play'}}">
+                <image class='icon'catchtap='togglePlaying'src='/images/icon/playerBegin_icon.png' />
+              </block>
+              <block wx:elif="{{playIcon=='icon-pause'}}">
+                  <image class='icon'catchtap='togglePlaying'src='/images/icon/playerPause_icon.png' />
+              </block>
+              <image class='icon'catchtap='next' src='/images/icon/playerNext_icon.png' />
+              <button open-type="share" plain='true'>
+                <image class='button-icon' src='/images/icon/share_icon.png' />
+              </button>
+          </view> 
+
+        </view>    
+      </view>
+    </view>
+  </view>
+</view>

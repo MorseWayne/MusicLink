@@ -1,0 +1,25 @@
+@import "stars-tpl.wxss";
+
+ .singleSong-container{
+    display: flex;
+    flex-direction: column;
+    padding: 20rpx 7rpx 20rpx 7rpx;
+} 
+
+.song-image{
+    width: 230rpx;
+    height: 230rpx;
+    border-radius: 5px; 
+}
+
+.song-title{
+    width: 230rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Microsoft YaHei;
+    margin-bottom: 16rpx;
+    font-size: 24rpx;
+    display: block;
+    padding-top: 20rpx;
+}

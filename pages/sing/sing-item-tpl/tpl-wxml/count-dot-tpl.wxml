@@ -1,0 +1,9 @@
+
+
+<template name="countDownTpl">
+    <view class="countDown-container">
+        <image class="dot-img" src="/images/icon/dot.png" hidden="{{remainedTime<=0}}"></image>
+        <image class="dot-img" src="/images/icon/dot.png" hidden="{{remainedTime<=1}}"></image>
+        <image class="dot-img" src="/images/icon/dot.png" hidden="{{remainedTime<=2}}"></image>
+    </view>
+</template>

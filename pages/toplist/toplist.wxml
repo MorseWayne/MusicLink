@@ -1,0 +1,43 @@
+<import src="../navigationBar-tpl/navigationBar-tpl.wxml"></import>
+  <block wx:if="{{compatibility}}">
+    <template is="navigationBarTpl" data="{{...Comp}}"></template>
+  </block>
+
+<view class='container'>
+  <view class='Top'>
+    <image class='cover' src='{{toplist.songs[0].coverageUrl}}'></image>
+    <view class='info-box'>
+        <view class='theme'>{{toplist.categoryTitle}}榜</view>
+        <image src='/images/icon/participant.png' catchtap='attendTap' data-index='0' ></image>
+    </view>
+    <view class="shade"></view>
+  </view>
+  <view class='toplist'>
+    <view wx:for="{{toplist.songs}}" wx:for-item="item" wx:for-index="index" >
+      <view  catchtap='attendTap' data-index='{{index}}'>
+      <!--top3是否需要添图-->
+           <!-- <block wx:if="{{index < 3}}">
+            <view class='item-box'>
+              <image src='{{images[index]}}' ></image>
+              <view class='item-detail'>
+                <text class='title'>{{item.title}}</text>
+                <text class='singer'>{{item.singer}}</text>
+              </view>
+            </view>
+          </block>
+          <block wx:else>  -->
+            <view class='item-box'>
+              <text class='index'>{{index+1}}</text>
+              <view class='item-detail'>
+                <text class='title'>{{item.title}}</text>
+                <text class='singer'>{{item.singer}}</text>
+              </view>
+            </view>
+           <!-- </block>  -->
+
+      </view>
+    </view>
+  </view>
+
+</view> 
+

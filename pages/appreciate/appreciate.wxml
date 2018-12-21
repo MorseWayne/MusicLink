@@ -1,0 +1,64 @@
+
+<view class='shader' style='height:{{statusBarHeight+250}}px;'>
+  <image class='background' style='height:{{statusBarHeight+250}}px;' src='{{FinishedSong.music.coverImg}}'></image>
+</view>
+  
+<view class='container'>
+  <view class='top-background'>
+    <button class='cancel' catchtap='onBackTap' plain="true" style='margin-top:{{statusBarHeight}}px;  border: 0px; color: #ffffff;' >取消</button>
+
+    <view class='row' style='margin-top:{{statusBarHeight+30}}px'>
+      <view class="main">发起者</view>
+      <scroll-view  class='avatar-box' scroll-x>
+        <image src='{{FinishedSong.avatar}}'></image>
+      </scroll-view> 
+    </view>
+
+    <view class='row'>
+      <view class="main">参与者</view>
+      <scroll-view  class='avatar-box' scroll-x>
+        <block wx:for="{{FinishedSong.Paticipants}}" wx:for-item="itm">
+          <image src='{{itm.avatar_url}}'></image>
+        </block>
+      </scroll-view> 
+    </view>
+
+    <view class="currentLyricContainer">{{currentLyric}}</view>
+
+    <view class='control'>
+
+      <view wx:if="{{!isPlaying}}" class='play' catchtap='play'>
+        <image class='icon' src='/images/icon/play.png'></image>
+      </view>
+
+       <view wx:else class='play' catchtap='onTapToPause'>
+        <image class='icon' src='/images/icon/pause.png'></image>
+      </view>
+
+      <view class="progress-container-box">
+        <text class="time time-l">{{progress_formatted}}</text>
+        <view class="progress-container">
+          <slider bindchange="onProgressChange" block-size='16' step="1" max='100' min='0' backgroundColor='#65605f' activeColor='#f04f43' block-color='#f04f43' value="{{progress}}" />
+        </view>
+        <text class="time time-r">{{duration_formatted}}</text>
+      </view>
+
+    </view>
+
+
+   <view style='text-align:left;width:710rpx;padding-left:40rpx;padding-top:40rpx;font-size:18px;color:#999;font-weight:600'>点 滴:</view> 
+    <view class="History" style='text-align:left;margin-left:40rpx;margin-top:10px' >整首歌完成历时<span>3</span>天，由<span>{{FinishedSong.Paticipants.length}}</span>位参与者共同完成</view>
+    <view class="History" style='text-align:right;margin-right:40rpx;' >经过了<span>12</span>次漂流</view>
+    <view class="History">已被<span>{{FinishedSong.listened_time}}</span>人聆听</view>
+    <view class="History" style='text-align:left;margin-left:40rpx;' >获得了<span>{{FinishedSong.song_score}}</span>的总评分</view>
+    <view class="History" style='text-align:center;' >其中得分最高的是<span>{{max.Max_user}}</span>，平均每段获得了<span>{{max.clip_score}}</span>的高分</view>
+    
+  </view>
+</view>
+
+
+  <view class='Bottom'>
+    <button class='publish' catchtap='onTapToEnjoy'  hover-class="button-hover">欣 赏</button>
+
+  <button class='publish' open-type="share"  hover-class="button-hover">分 享</button>
+</view>
