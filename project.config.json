@@ -1,0 +1,145 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.2",
+	"appid": "wx42fc2e8b4292d25f",
+	"projectname": "MusicLink",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 15,
+			"list": [
+				{
+					"id": 1,
+					"name": "me",
+					"pathName": "pages/me/me",
+					"query": ""
+				},
+				{
+					"id": 1,
+					"name": "select",
+					"pathName": "pages/select/select",
+					"query": "created_song_id=57&song_id=4&isShare='false'",
+					"scene": "1007"
+				},
+				{
+					"id": 2,
+					"name": "player",
+					"pathName": "pages/player/player",
+					"query": "created_song_id=6&isShare=true",
+					"scene": "1007"
+				},
+				{
+					"id": 3,
+					"name": "sing",
+					"pathName": "pages/sing/sing",
+					"query": "songId=11",
+					"scene": "1007"
+				},
+				{
+					"id": 4,
+					"name": "welcome",
+					"pathName": "pages/welcome/welcome",
+					"query": "",
+					"scene": "1007"
+				},
+				{
+					"id": 6,
+					"name": "toplist",
+					"pathName": "pages/toplist/toplist",
+					"query": "category=热门",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "world",
+					"pathName": "pages/world/world",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "drift-bottle",
+					"pathName": "pages/drift-bottle/drift-bottle",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "publish",
+					"pathName": "pages/publish/publish",
+					"query": "",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "dialog-oprated",
+					"pathName": "pages/dialog-oprated/dialog-oprated",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "balloon",
+					"pathName": "pages/balloon/balloon",
+					"query": "",
+					"scene": "1007"
+				},
+				{
+					"id": 11,
+					"name": "finished",
+					"pathName": "pages/finished/finished",
+					"query": "title=成都",
+					"scene": "1007"
+				},
+				{
+					"id": 12,
+					"name": "appreciate",
+					"pathName": "pages/appreciate/appreciate",
+					"query": "",
+					"scene": "1007"
+				},
+				{
+					"id": -1,
+					"name": "finished",
+					"pathName": "pages/finished/finished",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "finished",
+					"pathName": "pages/finished/finished",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "finished",
+					"pathName": "pages/finished/finished"
+				}
+			]
+		}
+	}
+}

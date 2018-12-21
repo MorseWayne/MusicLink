@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/post/post",
+    "pages/world/world",
+    "pages/me/me",
+    "pages/select/select",
+    "pages/me/setting/setting",
+    "pages/create/create",
+    "pages/sing/sing",
+    "pages/me/list-item/list-item",
+    "pages/player/player",
+    "pages/toplist/toplist",
+    "pages/all-toplist/all-toplist",
+    "pages/navigationBar-tpl/navigationBar-tpl",
+    "pages/publish/publish",
+    "pages/dialog-oprated/dialog-oprated",
+    "pages/balloon/balloon",
+    "pages/finished/finished",
+    "pages/appreciate/appreciate"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#8aaed7",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/world/world",
+        "text": "世界",
+        "iconPath": "/images/icon/hot.png",
+        "selectedIconPath": "/images/icon/hot_selected.png"
+      },
+      {
+        "pagePath": "pages/post/post",
+        "text": "点歌",
+        "iconPath": "/images/icon/sing.png",
+        "selectedIconPath": "/images/icon/sing_selected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "/images/icon/me.png",
+        "selectedIconPath": "/images/icon/me_selected.png"
+      }
+    ],
+    "backgroundColor": "#fff",
+    "selectedColor": "#dc280c",
+    "borderStyle": "black"
+  }
+}
